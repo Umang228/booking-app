@@ -21,7 +21,7 @@ const BookingPage = () => {
 
     const fetchBookedTimes = async (selectedDate) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/bookings`);
+            const response = await axios.get(`https://booking-app-api-0l78.onrender.com/api/bookings`);
             const bookings = response.data.bookings.filter(
                 (booking) => booking.date === selectedDate
             );
@@ -36,7 +36,7 @@ const BookingPage = () => {
         const newBooking = { date, time, guests, name, contact, about };
 
         try {
-            await axios.post(`http://localhost:5000/api/bookings`, newBooking);
+            await axios.post(`https://booking-app-api-0l78.onrender.com/api/bookings`, newBooking);
             router.push({
                 pathname: "/success",
                 query: newBooking,
